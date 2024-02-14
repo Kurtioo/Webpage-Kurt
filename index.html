@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImKurtWebpage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo" id="logo">ImKurt</div>
+        <div class="nav-items">
+        <a href="/">Home</a>
+        <a href="/">Work</a>
+        <a href="/">About</a>
+        <a href="/">Contact</a>
+    </div>
+    </nav>
+    <section class="hero">
+       <div class="hero-container">
+        <div class="column-left">
+            <h1></h1>
+            <p>I am a student graphic designer based in Toronto ON. I invite you to learn more about me.</p>
+            <button>View Work</button>
+       </div>
+       <div class="column-right">
+        <img id="img1" onmouseover="setNewImage()" onmouseout="setOldImage()" src="/images/R&B Front Cover.jpg" alt="illustration" class="hero-image">
+    </div>
+    
+    <footer>
+        <p class="go-back" onclick="goToTop()">Go Back Up</p>
+    </footer>
+
+    <!--JavascriptStart-->
+
+    <!--ImageHoverChange-->
+       <script type="text/javascript">
+        
+        function setNewImage()
+        {
+            document.getElementById("img1").src 
+            ="/images/R&B Back Cover.png";
+        }
+        function setOldImage()
+        {
+            document.getElementById("img1").src 
+            ="/images/R&B Front Cover.jpg";
+        }
+       </script>
+    <!--ImageHoverChangeFinish-->
+
+    <!--TypingAnimationScript-->
+    <script>
+    const typingTextElement = document.querySelector(".column-left h1");
+    const textToType = "Welcome, I Am Kurt!";
+    let index = 0;
+
+    function typeText() {
+        typingTextElement.textContent += textToType[index];
+        index++;
+
+        if (index >= textToType.length) {
+            index = 0;
+            setTimeout(() => {
+                typingTextElement.textContent = "";
+                typeText();
+            }, 2000);
+        } else {
+            setTimeout(typeText, 150);
+        }
+    }
+    window.onload = typeText;
+    </script>
+    <!--TypingAnimationScriptEnd-->
+
+    <!--ScrollToTopScript-->
+    <script>
+    function goToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <!--ScrollToTopScriptEnd-->
+
+    <!--ColorChange-->
+    <script>
+        function changeLogoColor() {
+            const logoElement = document.getElementById("logo");
+            let colorIndex = 0;
+            const colors = ["black", "purple", "gold"];
+
+            setInterval(() => {
+                logoElement.style.color = colors[colorIndex];
+                colorIndex = (colorIndex + 1) % colors.length;
+            }, 1000);
+        }
+        changeLogoColor();
+    </script>
+    <!--ColorChangeEnd-->
+
+    <!--JavascriptEnd-->
+
+
+    </section>
+</body>
+</html>
